@@ -16,12 +16,11 @@ var RestaurantSchema = new Schema({
     zipcode: Number
   },
   yelp_url: String,
-  items: []
+  menu : [MenuSchema]
 });
 
 var MenuSchema = new Schema({
   title: String,
-  restaurants : [RestaurantSchema]
 });
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
