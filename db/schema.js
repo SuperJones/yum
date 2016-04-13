@@ -9,6 +9,11 @@ db.once('open', function(){
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 
+
+var MenuSchema = new Schema({
+  title: String,
+});
+
 var RestaurantSchema = new Schema({
   name: String,
   address: {
@@ -16,12 +21,10 @@ var RestaurantSchema = new Schema({
     zipcode: Number
   },
   yelp_url: String,
-  menu : [MenuSchema]
+  menus: [MenuSchema]
 });
 
-var MenuSchema = new Schema({
-  title: String,
-});
+
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
 var MenuModel = mongoose.model("Menu", MenuSchema);

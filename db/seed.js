@@ -22,7 +22,6 @@ var lobstershack= new RestaurantModel({
 
 var menu1 = new MenuModel({title: "Breakfast menu"});
 
-//FIXME: what gets pushed into what?
 
 lobstershack.menus.push(menu1);
 lobstershack.save(function(err, restaurant){
