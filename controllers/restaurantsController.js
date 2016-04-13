@@ -34,6 +34,20 @@ var restaurantsController = {
   }
 };
 
+removeMenu: function(req, menu){
+  RestaurantModel.findOneAndUpdate(req, {
+    $pull: { menus: {title: menu} }
+  },
+  {new: true}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs);
+    }
+  });
+}
+
 restaurantsController.index();
 restaurantsController.show({name: "Lobster Shack"});
 restaurantsController.show({zipcode: 20005});
